@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init('FUm4j7tWFUsArOCkZ');
+    })();
+
+    </script>
+</head>
+<body>
+    <form id="loginForm" onsubmit="sendMail(event)">
+        <input type="text" id="username" name="username" placeholder="name" required /><br>
+        <input type="email" id="email" name="email" placeholder="email" required /><br>
+      
+        <button type="submit">Login</button>
+    </form>
+      
+    
+    <script>
+
+        function sendMail(event) {
+        
+            event.preventDefault();
+
+            var userName = document.getElementById('username').value;
+            var userEmail = document.getElementById('email').value;
+
+            if( userName && userEmail ){
+                var emailParams = {
+                    username: userName,
+                    userEmail: userEmail,
+                    message: "Thank you for logging in! We're glad to have you back."
+                };
+
+                emailjs.send('service_vd6ym0i', 'template_dklmz7o', emailParams)
+                .then(function() {
+                    alert("success! ");
+                    document.getElementById("loginForm").reset();
+                }, function(error){
+                    alert("failed " + error.text);
+                });
+            }
+        }
+
+    </script>
+      
+</body>
+</html>
