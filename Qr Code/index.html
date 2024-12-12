@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="custom">
+            <input type="text" id="URL" required><br>
+            <label for="dot">choose the color for dot : </label>
+            <input type="color" name="dot" id="dot"><br>
+            <label for="back">choose the color for background : </label>
+            <input type="color" name="back" id="back" value="#ffffff"><br>
+            <button onclick="qrGen()" id="gen">Generate QR code</button>
+            <button id="regen">Another QR code</button>
+        </div>
+        
+        <div class="final">
+            <div id="qrcode"></div>
+            
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
